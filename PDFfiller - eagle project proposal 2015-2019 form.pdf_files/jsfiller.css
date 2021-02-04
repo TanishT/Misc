@@ -1,0 +1,373 @@
+.pageAnimation-Pagination .pageActive-Pagination .layersWrapper-PageCanvas {
+  transform: translate3d(0,0,0);
+}
+
+.pageAnimation-Pagination .pageActive-Pagination .content-Content {
+  transform: translate3d(0,0,0);
+}
+
+.pageAnimation-Pagination .locker-Pagination {
+  transform: translate3d(0,0,0);
+}
+
+/**
+ * Гост не может получить ширину и высоту
+ * из-за того, что в момент вызова RulerView::componentDidMount
+ * после переключения страницы, он невидим (display: none)
+ */
+html.os-mobile .pageAnimation-Pagination .elementGhost-ElementGhost {
+  display: none;
+}
+
+.pageScaling-Pagination .pageHidden-Pagination {
+  visibility: hidden;
+}
+
+/* JSF-1668 */
+.jsf-watermark-settings-panel__body {
+  overflow: visible;
+}
+
+/* JSF-3626 */
+.pageAttribute-PageAttributesLayer{
+  padding-left: 3px;
+  padding-right: 3px;
+  white-space: nowrap;
+}
+
+/*
+ * Constructor tooltip
+ */
+.jsf-watermark-settings-panel__tooltip-info .tooltipster-wrapper {
+  max-width: 200px;
+  transition-duration: 350ms;
+  animation-duration: 350ms;
+  top: calc(100% + 10px);
+  left: 50%;
+  transform: translateX(-50%);
+
+  opacity: 0;
+  pointer-events: none;
+}
+
+.jsf-watermark-settings-panel__tooltip-info:hover .tooltipster-wrapper {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.jsf-watermark-settings-panel__tooltip-info .tooltipster-wrapper .tooltipster-arrow-outer {
+  margin-top: -1px;
+  border-color: rgb(204, 204, 204);
+}
+
+.jsf-watermark-settings-panel__tooltip-info .tooltipster-wrapper .tooltipster-arrow-inner {
+  border-color: rgb(255, 255, 255);
+}
+
+
+.test-link-widget .test-link-widget__input {
+  -webkit-user-select: auto;
+  -moz-user-select: auto;
+  -ms-user-select: auto;
+  user-select: auto;
+}
+
+/* From HeaderDoneView.js */
+.jsf-g-ibtn-separation span { display: none }
+
+.jsf-wizard { max-width: 700px; }
+.jsf-wizard__calendar { min-width: 110px; max-width: 300px; }
+
+
+/* From SearchHighlighter */
+.searchHighlighter {
+  position: absolute;
+  white-space: pre;
+  transform-origin: 0% 0%;
+  color: transparent;
+  z-index: 1;
+  line-height: 1.21;
+  pointer-events: none;
+}
+
+.searchHighlighter.fakeEditHighlighter {
+  cursor: pointer;
+  pointer-events: auto;
+  z-index: unset;
+}
+
+.searchHighlighter.fakeEditHighlighter.emptyHighlighter {
+  cursor: unset;
+}
+
+.searchHighlighter.fakeEditHighlighter:hover {
+  outline: 1px dashed orange;
+  z-index: 1;
+}
+
+.searchHighlighter.fakeEditHighlighter.emptyHighlighter {
+  outline: none;
+}
+.searchHighlighter.fakeEditHighlighter.emptyHighlighter.outlineHighlighter {
+  outline: 1px dashed orange;
+}
+
+.searchHighlighter.fakeEditHighlighter .jsf-fillable__button {
+  display: none;
+  transform: translate(100%, -50%);
+}
+
+html[class~="isDesktop"] .content-Content.contentCanNotHover-Content .searchHighlighter.fakeEditHighlighter {
+  pointer-events: none;
+}
+
+.searchHighlighter.fakeEditHighlighter:hover .jsf-fillable__button {
+  display: initial;
+}
+
+.fakeEditHighlighter .fakeEditHoverBlocker{
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+}
+
+.Internet_Explorer .searchHighlighter.fakeEditHighlighter:hover .jsf-fillable__button {
+  display: block;
+}
+
+.searchHighlighter.text {
+  top: 0px;
+  word-wrap: break-word;
+  white-space: normal;
+}
+
+.searchHighlighter.cells {
+  padding-left: 0px;
+  padding-right: 0px;
+
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+}
+
+.searchHighlighterInner {
+  background-color: rgba(0, 255, 0, 0.3);
+}
+
+.searchHighlighterInner.active {
+  background-color: rgba(255, 0, 0, 0.3);
+}
+
+.pdfTextLayer {
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.searchHighlighterInner.cells {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+}
+
+/* ToolbarSearch */
+.ToolbarSearch-boxStyle {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.ToolbarSearch-inputStyle {
+  width: 300px;
+  min-height: 25px;
+  margin-right: 10px;
+}
+
+.ToolbarSearch-btnStyle {
+  min-width: 30px;
+  min-height: 30px;
+  margin-right: 1px;
+  font-size: 20px;
+  cursor: pointer;
+  display: inline-block;
+  border: 1px solid darkgray;
+  border-radius: 3px;
+}
+
+.ToolbarSearch-resultsLabel {
+  font-size: 20px;
+}
+
+.pdfTextLayer {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.invalid-paConstructor-input {
+  border-color: red !important;
+}
+
+.jsf-right-sb__wrapper {
+  max-height: 100%;
+  flex: none;
+  -webkit-box-flex: unset;
+  -ms-flex: unset
+}
+
+.bates-text-input {
+  margin-bottom: 10px;
+}
+
+.pageAttributesLayer-PageAttributesLayer.constructor-active {
+  pointer-events: auto;
+  z-index: 10;
+}
+
+/*
+ * 10% left tooltip is bad for our case, use absolute value
+ */
+.simple-tooltip--arrow-top-left20px::before, .simple-tooltip--arrow-top-left20px::after {
+  left: 20px;
+}
+
+.jsf-wizard__maximized_width {
+  width: 265px;
+}
+
+.jsf-wizard__position-absolute {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 13;
+  cursor: pointer;
+}
+
+.jsf-wizard__display-none {
+  display: none;
+}
+
+.jsf-wizard__display-block {
+  display: block;
+}
+
+.jsf-header--mobile_min-height {
+  z-index: 3;
+  min-height: 44px;
+}
+
+/* must be deleted later because this class gonna be in a refactoring version */
+.todo__list {
+  position: relative;
+}
+
+
+.Safari .help-control [contenteditable], .Safari .cellsTool-CellsTool [contenteditable] {
+  -webkit-user-select: text;
+  user-select: text;
+}
+
+/* <Portals> */
+.Select > .Select-menu-outer {
+  display: none;
+}
+.react-portal .Select-menu-outer {
+  margin-top: 0;
+  position: relative;
+}
+/* Removes arrows, now it handles wrapper */
+.react-portal .Select-menu-outer:before {
+  content: none;
+}
+.react-portal .Select-menu-outer:after {
+  content: none;
+}
+.popover--arrow-position--top-center,
+.popover--arrow-position--top-left,
+.popover--arrow-position--top-right {
+  margin-top: 7px;
+}
+.popover--arrow-position--left-center,
+.popover--arrow-position--left-bottom,
+.popover--arrow-position--left-top {
+  margin-left: 7px;
+}
+/* </Portals> */
+
+.g-scrollbar,
+.todo__cell {
+  -webkit-overflow-scrolling: touch;
+}
+
+.jsf-default-modal {
+  width: 400px;
+  background-color: #FFFFFF;
+  box-shadow: 0 0 10px rgba(0,0,0,0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 20px;
+}
+
+.jsf-default-modal__btn-style {
+  margin: 19px 10px 10px 10px;
+  width: 160px;
+}
+
+.Select-option {
+  min-height: 34px;
+}
+
+.dragHandler__custom-todo {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 50px;
+  height: 50px;
+  cursor: move;
+}
+
+.interfaceLocker {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: transparent;
+  z-index: 2;
+}
+
+.interfaceLocker.busyCursor {
+  cursor: wait;
+}
+
+/* <FakeTextArea */
+.fake-textarea__text .text[contenteditable='true'] {
+  border-radius: 1px;
+}
+
+.fake-textarea__text .text[contenteditable='true']:focus {
+  outline: none;
+  box-shadow: 0 0 0 1px #8acbff;
+}
+/* </FakeTextArea */
+
+/* JSF-4024 */
+
+.jsf-left-sb {
+  z-index: 1;
+}
+
+.popover .rta__autocomplete {
+  margin-top: 0;
+  position: relative;
+}

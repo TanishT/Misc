@@ -1,0 +1,145 @@
+.main {
+  height: 0;
+}
+
+.userSelectStyle * {
+  user-select: text;
+  -ms-user-select: text;
+  -moz-user-select: text;
+}
+
+.devBuildLabel {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  color: #DDD;
+  font-size: .7em;
+  opacity: 0.5;
+  padding: 3px;
+  pointer-events: none;
+}
+
+@media screen and (max-width: 768px) {
+  .devBuildLabel { bottom: 45px; }
+}
+
+.devBuildLine {
+  display: block;
+  text-align: right;
+}
+
+.devBuildHidden {
+  opacity: 0;
+}
+
+.interfaceLocker {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background-color: transparent;
+  z-index: 2;
+}
+
+.wizardPointer {
+  position: absolute;
+  left: calc(100% + 40px);
+  top: 50%;
+  animation-name: fadein;
+  animation-duration: 350ms;
+  touch-action: none;
+  visibility: visible;
+}
+
+@keyframes fadein {
+  from {opacity: 0;}
+  to {opacity: 1;}
+}
+
+.dragHandler {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 32px;
+  height: 65px;
+  cursor: move;
+}
+
+.minDragHandler {
+  height: auto;
+  right: 0;
+  bottom: 0;
+}
+
+html[class~="isDesktop"] .wizardTodoPopupView {
+  left: auto;
+  right: 10px;
+  top: 61px;
+  z-index: 130;
+}
+
+html[class~="isDesktop"] .wizardCenteredTodoPopupView {
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 310px;
+  height: 200px;
+  margin: auto;
+  z-index: 130;
+}
+
+/* JSF-3914 */
+html.Internet_Explorer .custom-settings__item #react-select-2--value > div.Select-input > input {
+  height: 30px;
+  line-height: 30px;
+}
+
+.isPhone .notification-bar { max-width: 280px; }
+
+/* must be removed after implementation new markup for popover */
+.jsf-popover--info {
+  z-index: 5;
+}
+
+/*
+* https://pdffiller.atlassian.net/browse/JSF-4207
+* after refactoring styles for combine-modals
+* move this styles to refactoring css
+*/
+.cm.cm--export .cm-phone-input-container {
+  margin: auto;
+  margin-top: 10px;
+}
+
+.palette {
+  z-index: 1;
+}
+
+.jsf-modals-close-icon {
+  height: 22px;
+}
+
+.palette__drag-handle::before {
+  box-sizing: content-box;
+}
+
+.fillable-placeholder {
+  height: 16px;
+}
+
+.condition-configurator__info {
+  color: black;
+}
+
+.input-fieldset__main {
+  position: relative;
+}
+
+.modal-backdrop {
+  background: rgba(0, 0, 0, 0.10);
+  z-index: 99 !important;
+}
+
+.dialog .popover.popover--theme--error {
+  width: 200px;
+}
