@@ -1,0 +1,450 @@
+cmake_minimum_required(VERSION 3.14)
+project(7405M_code)
+
+set(CMAKE_CXX_STANDARD 14)
+
+include_directories(include)
+include_directories(include/display)
+include_directories(include/display/lv_core)
+include_directories(include/display/lv_draw)
+include_directories(include/display/lv_fonts)
+include_directories(include/display/lv_hal)
+include_directories(include/display/lv_misc)
+include_directories(include/display/lv_objx)
+include_directories(include/display/lv_themes)
+include_directories(include/okapi)
+include_directories(include/okapi/api)
+include_directories(include/okapi/api/chassis)
+include_directories(include/okapi/api/chassis/controller)
+include_directories(include/okapi/api/chassis/model)
+include_directories(include/okapi/api/control)
+include_directories(include/okapi/api/control/async)
+include_directories(include/okapi/api/control/iterative)
+include_directories(include/okapi/api/control/util)
+include_directories(include/okapi/api/device)
+include_directories(include/okapi/api/device/button)
+include_directories(include/okapi/api/device/motor)
+include_directories(include/okapi/api/device/rotarysensor)
+include_directories(include/okapi/api/filter)
+include_directories(include/okapi/api/units)
+include_directories(include/okapi/api/util)
+include_directories(include/okapi/impl)
+include_directories(include/okapi/impl/chassis)
+include_directories(include/okapi/impl/chassis/controller)
+include_directories(include/okapi/impl/chassis/model)
+include_directories(include/okapi/impl/control)
+include_directories(include/okapi/impl/control/async)
+include_directories(include/okapi/impl/control/iterative)
+include_directories(include/okapi/impl/control/util)
+include_directories(include/okapi/impl/device)
+include_directories(include/okapi/impl/device/button)
+include_directories(include/okapi/impl/device/motor)
+include_directories(include/okapi/impl/device/rotarysensor)
+include_directories(include/okapi/impl/filter)
+include_directories(include/okapi/impl/util)
+include_directories(include/okapi/pathfinder)
+include_directories(include/okapi/pathfinder/include)
+include_directories(include/okapi/pathfinder/include/pathfinder)
+include_directories(include/okapi/pathfinder/include/pathfinder/followers)
+include_directories(include/okapi/pathfinder/include/pathfinder/modifiers)
+include_directories(include/pros)
+include_directories(src/lib)
+include_directories(src/lib/geometry)
+include_directories(src/lib/geometry/interfaces)
+include_directories(src/lib/physics)
+include_directories(src/lib/spline)
+include_directories(src/lib/trajectory)
+include_directories(src/lib/trajectory/timing)
+include_directories(src/lib/utility)
+include_directories(src/lib/utility/interfaces)
+include_directories(src/robot)
+include_directories(src/robot/auto)
+include_directories(src/robot/auto/actions)
+include_directories(src/robot/auto/modes)
+include_directories(src/robot/loops)
+include_directories(src/robot/paths)
+include_directories(src/robot/subsystems)
+include_directories(src/tests)
+include_directories(src/tests/lib/geometry)
+include_directories(src/tests/lib/physics)
+include_directories(src/tests/lib/spline)
+include_directories(src/tests/lib/trajectory)
+include_directories(src/tests/lib/trajectory/timing)
+
+add_executable(7405M_code
+        include/display/lv_core/lv_group.h
+        include/display/lv_core/lv_indev.h
+        include/display/lv_core/lv_lang.h
+        include/display/lv_core/lv_obj.h
+        include/display/lv_core/lv_refr.h
+        include/display/lv_core/lv_style.h
+        include/display/lv_core/lv_vdb.h
+        include/display/lv_draw/lv_draw.h
+        include/display/lv_draw/lv_draw_arc.h
+        include/display/lv_draw/lv_draw_img.h
+        include/display/lv_draw/lv_draw_label.h
+        include/display/lv_draw/lv_draw_line.h
+        include/display/lv_draw/lv_draw_rbasic.h
+        include/display/lv_draw/lv_draw_rect.h
+        include/display/lv_draw/lv_draw_triangle.h
+        include/display/lv_draw/lv_draw_vbasic.h
+        include/display/lv_fonts/lv_font_builtin.h
+        include/display/lv_hal/lv_hal.h
+        include/display/lv_hal/lv_hal_disp.h
+        include/display/lv_hal/lv_hal_indev.h
+        include/display/lv_hal/lv_hal_tick.h
+        include/display/lv_misc/lv_anim.h
+        include/display/lv_misc/lv_area.h
+        include/display/lv_misc/lv_circ.h
+        include/display/lv_misc/lv_color.h
+        include/display/lv_misc/lv_font.h
+        include/display/lv_misc/lv_fs.h
+        include/display/lv_misc/lv_gc.h
+        include/display/lv_misc/lv_ll.h
+        include/display/lv_misc/lv_log.h
+        include/display/lv_misc/lv_math.h
+        include/display/lv_misc/lv_mem.h
+        include/display/lv_misc/lv_symbol_def.h
+        include/display/lv_misc/lv_task.h
+        include/display/lv_misc/lv_templ.h
+        include/display/lv_misc/lv_txt.h
+        include/display/lv_misc/lv_ufs.h
+        include/display/lv_objx/lv_arc.h
+        include/display/lv_objx/lv_bar.h
+        include/display/lv_objx/lv_btn.h
+        include/display/lv_objx/lv_btnm.h
+        include/display/lv_objx/lv_calendar.h
+        include/display/lv_objx/lv_canvas.h
+        include/display/lv_objx/lv_cb.h
+        include/display/lv_objx/lv_chart.h
+        include/display/lv_objx/lv_cont.h
+        include/display/lv_objx/lv_ddlist.h
+        include/display/lv_objx/lv_gauge.h
+        include/display/lv_objx/lv_img.h
+        include/display/lv_objx/lv_imgbtn.h
+        include/display/lv_objx/lv_kb.h
+        include/display/lv_objx/lv_label.h
+        include/display/lv_objx/lv_led.h
+        include/display/lv_objx/lv_line.h
+        include/display/lv_objx/lv_list.h
+        include/display/lv_objx/lv_lmeter.h
+        include/display/lv_objx/lv_mbox.h
+        include/display/lv_objx/lv_objx_templ.h
+        include/display/lv_objx/lv_page.h
+        include/display/lv_objx/lv_preload.h
+        include/display/lv_objx/lv_roller.h
+        include/display/lv_objx/lv_slider.h
+        include/display/lv_objx/lv_spinbox.h
+        include/display/lv_objx/lv_sw.h
+        include/display/lv_objx/lv_ta.h
+        include/display/lv_objx/lv_table.h
+        include/display/lv_objx/lv_tabview.h
+        include/display/lv_objx/lv_tileview.h
+        include/display/lv_objx/lv_win.h
+        include/display/lv_themes/lv_theme.h
+        include/display/lv_themes/lv_theme_alien.h
+        include/display/lv_themes/lv_theme_default.h
+        include/display/lv_themes/lv_theme_material.h
+        include/display/lv_themes/lv_theme_mono.h
+        include/display/lv_themes/lv_theme_nemo.h
+        include/display/lv_themes/lv_theme_night.h
+        include/display/lv_themes/lv_theme_templ.h
+        include/display/lv_themes/lv_theme_zen.h
+        include/display/lv_conf.h
+        include/display/lv_conf_checker.h
+        include/display/lv_version.h
+        include/display/lvgl.h
+        include/okapi/api/chassis/controller/chassisController.hpp
+        include/okapi/api/chassis/controller/chassisControllerIntegrated.hpp
+        include/okapi/api/chassis/controller/chassisControllerPid.hpp
+        include/okapi/api/chassis/controller/chassisScales.hpp
+        include/okapi/api/chassis/model/chassisModel.hpp
+        include/okapi/api/chassis/model/readOnlyChassisModel.hpp
+        include/okapi/api/chassis/model/skidSteerModel.hpp
+        include/okapi/api/chassis/model/threeEncoderSkidSteerModel.hpp
+        include/okapi/api/chassis/model/xDriveModel.hpp
+        include/okapi/api/control/async/asyncController.hpp
+        include/okapi/api/control/async/asyncLinearMotionProfileController.hpp
+        include/okapi/api/control/async/asyncMotionProfileController.hpp
+        include/okapi/api/control/async/asyncPosIntegratedController.hpp
+        include/okapi/api/control/async/asyncPositionController.hpp
+        include/okapi/api/control/async/asyncPosPidController.hpp
+        include/okapi/api/control/async/asyncVelIntegratedController.hpp
+        include/okapi/api/control/async/asyncVelocityController.hpp
+        include/okapi/api/control/async/asyncVelPidController.hpp
+        include/okapi/api/control/async/asyncWrapper.hpp
+        include/okapi/api/control/iterative/iterativeController.hpp
+        include/okapi/api/control/iterative/iterativeMotorVelocityController.hpp
+        include/okapi/api/control/iterative/iterativePositionController.hpp
+        include/okapi/api/control/iterative/iterativePosPidController.hpp
+        include/okapi/api/control/iterative/iterativeVelocityController.hpp
+        include/okapi/api/control/iterative/iterativeVelPidController.hpp
+        include/okapi/api/control/util/controllerRunner.hpp
+        include/okapi/api/control/util/flywheelSimulator.hpp
+        include/okapi/api/control/util/pidTuner.hpp
+        include/okapi/api/control/util/settledUtil.hpp
+        include/okapi/api/control/closedLoopController.hpp
+        include/okapi/api/control/controllerInput.hpp
+        include/okapi/api/control/controllerOutput.hpp
+        include/okapi/api/device/button/abstractButton.hpp
+        include/okapi/api/device/button/buttonBase.hpp
+        include/okapi/api/device/motor/abstractMotor.hpp
+        include/okapi/api/device/rotarysensor/continuousRotarySensor.hpp
+        include/okapi/api/device/rotarysensor/rotarySensor.hpp
+        include/okapi/api/filter/averageFilter.hpp
+        include/okapi/api/filter/composableFilter.hpp
+        include/okapi/api/filter/demaFilter.hpp
+        include/okapi/api/filter/ekfFilter.hpp
+        include/okapi/api/filter/emaFilter.hpp
+        include/okapi/api/filter/filter.hpp
+        include/okapi/api/filter/filteredControllerInput.hpp
+        include/okapi/api/filter/medianFilter.hpp
+        include/okapi/api/filter/passthroughFilter.hpp
+        include/okapi/api/filter/velMath.hpp
+        include/okapi/api/units/QAcceleration.hpp
+        include/okapi/api/units/QAngle.hpp
+        include/okapi/api/units/QAngularAcceleration.hpp
+        include/okapi/api/units/QAngularJerk.hpp
+        include/okapi/api/units/QAngularSpeed.hpp
+        include/okapi/api/units/QArea.hpp
+        include/okapi/api/units/QForce.hpp
+        include/okapi/api/units/QFrequency.hpp
+        include/okapi/api/units/QJerk.hpp
+        include/okapi/api/units/QLength.hpp
+        include/okapi/api/units/QMass.hpp
+        include/okapi/api/units/QPressure.hpp
+        include/okapi/api/units/QSpeed.hpp
+        include/okapi/api/units/QTime.hpp
+        include/okapi/api/units/QTorque.hpp
+        include/okapi/api/units/QVolume.hpp
+        include/okapi/api/units/RQuantity.hpp
+        include/okapi/api/util/abstractRate.hpp
+        include/okapi/api/util/abstractTimer.hpp
+        include/okapi/api/util/logging.hpp
+        include/okapi/api/util/mathUtil.hpp
+        include/okapi/api/util/supplier.hpp
+        include/okapi/api/util/timeUtil.hpp
+        include/okapi/api/coreProsAPI.hpp
+        include/okapi/impl/chassis/controller/chassisControllerFactory.hpp
+        include/okapi/impl/chassis/model/chassisModelFactory.hpp
+        include/okapi/impl/control/async/asyncControllerFactory.hpp
+        include/okapi/impl/control/iterative/iterativeControllerFactory.hpp
+        include/okapi/impl/control/util/controllerRunnerFactory.hpp
+        include/okapi/impl/control/util/pidTunerFactory.hpp
+        include/okapi/impl/control/util/settledUtilFactory.hpp
+        include/okapi/impl/device/button/adiButton.hpp
+        include/okapi/impl/device/button/controllerButton.hpp
+        include/okapi/impl/device/motor/adiMotor.hpp
+        include/okapi/impl/device/motor/motor.hpp
+        include/okapi/impl/device/motor/motorGroup.hpp
+        include/okapi/impl/device/rotarysensor/adiEncoder.hpp
+        include/okapi/impl/device/rotarysensor/adiGyro.hpp
+        include/okapi/impl/device/rotarysensor/integratedEncoder.hpp
+        include/okapi/impl/device/rotarysensor/potentiometer.hpp
+        include/okapi/impl/device/adiUltrasonic.hpp
+        include/okapi/impl/device/controller.hpp
+        include/okapi/impl/device/controllerUtil.hpp
+        include/okapi/impl/device/vision.hpp
+        include/okapi/impl/filter/velMathFactory.hpp
+        include/okapi/impl/util/rate.hpp
+        include/okapi/impl/util/timer.hpp
+        include/okapi/impl/util/timeUtilFactory.hpp
+        include/okapi/pathfinder/include/pathfinder/followers/distance.h
+        include/okapi/pathfinder/include/pathfinder/followers/encoder.h
+        include/okapi/pathfinder/include/pathfinder/modifiers/swerve.h
+        include/okapi/pathfinder/include/pathfinder/modifiers/tank.h
+        include/okapi/pathfinder/include/pathfinder/fit.h
+        include/okapi/pathfinder/include/pathfinder/io.h
+        include/okapi/pathfinder/include/pathfinder/lib.h
+        include/okapi/pathfinder/include/pathfinder/mathutil.h
+        include/okapi/pathfinder/include/pathfinder/spline.h
+        include/okapi/pathfinder/include/pathfinder/structs.h
+        include/okapi/pathfinder/include/pathfinder/trajectory.h
+        include/okapi/pathfinder/include/pathfinder.h
+        include/okapi/api.hpp
+        include/pros/adi.h
+        include/pros/adi.hpp
+        include/pros/api_legacy.h
+        include/pros/apix.h
+        include/pros/colors.h
+        include/pros/llemu.h
+        include/pros/llemu.hpp
+        include/pros/misc.h
+        include/pros/misc.hpp
+        include/pros/motors.h
+        include/pros/motors.hpp
+        include/pros/rtos.h
+        include/pros/rtos.hpp
+        include/pros/serial.h
+        include/pros/serial.hpp
+        include/pros/vision.h
+        include/pros/vision.hpp
+        include/api.h
+        include/main.h
+        src/lib/geometry/interfaces/ICurvature.hpp
+        src/lib/geometry/interfaces/IPose2d.hpp
+        src/lib/geometry/interfaces/IRotation2d.hpp
+        src/lib/geometry/interfaces/ITranslation2d.hpp
+        src/lib/geometry/interfaces/State.hpp
+        src/lib/geometry/Displacement1d.cpp
+        src/lib/geometry/Displacement1d.hpp
+        src/lib/geometry/Pose2d.cpp
+        src/lib/geometry/Pose2d.hpp
+        src/lib/geometry/Pose2dWithCurvature.cpp
+        src/lib/geometry/Pose2dWithCurvature.hpp
+        src/lib/geometry/Rotation2d.cpp
+        src/lib/geometry/Rotation2d.hpp
+        src/lib/geometry/Translation2d.cpp
+        src/lib/geometry/Translation2d.hpp
+        src/lib/geometry/Twist2d.cpp
+        src/lib/geometry/Twist2d.hpp
+        src/lib/physics/DCMotorTransmission.cpp
+        src/lib/physics/DCMotorTransmission.hpp
+        src/lib/physics/DifferentialDrive.cpp
+        src/lib/physics/DifferentialDrive.hpp
+        src/lib/physics/DriveCharacterization.cpp
+        src/lib/physics/DriveCharacterization.hpp
+        src/lib/spline/CubicHermiteSpline.cpp
+        src/lib/spline/CubicHermiteSpline.hpp
+        src/lib/spline/QuinticHermiteSpline.cpp
+        src/lib/spline/QuinticHermiteSpline.hpp
+        src/lib/spline/Spline.cpp
+        src/lib/spline/Spline.hpp
+        src/lib/spline/SplineGenerator.cpp
+        src/lib/spline/SplineGenerator.hpp
+        src/lib/trajectory/timing/CentripetalAccelerationConstraint.cpp
+        src/lib/trajectory/timing/CentripetalAccelerationConstraint.hpp
+        src/lib/trajectory/timing/DifferentialDriveDynamicsConstraint.cpp
+        src/lib/trajectory/timing/DifferentialDriveDynamicsConstraint.hpp
+        src/lib/trajectory/timing/TimedState.cpp
+        src/lib/trajectory/timing/TimedState.hpp
+        src/lib/trajectory/timing/TimingConstraint.hpp
+        src/lib/trajectory/timing/TimingUtil.cpp
+        src/lib/trajectory/timing/TimingUtil.hpp
+        src/lib/trajectory/timing/VelocityLimitRegionConstraint.cpp
+        src/lib/trajectory/timing/VelocityLimitRegionConstraint.hpp
+        src/lib/trajectory/DistanceView.cpp
+        src/lib/trajectory/DistanceView.hpp
+        src/lib/trajectory/IndexView.cpp
+        src/lib/trajectory/IndexView.hpp
+        src/lib/trajectory/IPathFollower.hpp
+        src/lib/trajectory/PurePursuitController.cpp
+        src/lib/trajectory/PurePursuitController.hpp
+        src/lib/trajectory/TimedView.cpp
+        src/lib/trajectory/TimedView.hpp
+        src/lib/trajectory/Trajectory.cpp
+        src/lib/trajectory/Trajectory.hpp
+        src/lib/trajectory/TrajectoryIterator.cpp
+        src/lib/trajectory/TrajectoryIterator.hpp
+        src/lib/trajectory/TrajectoryPoint.cpp
+        src/lib/trajectory/TrajectoryPoint.hpp
+        src/lib/trajectory/TrajectorySamplePoint.cpp
+        src/lib/trajectory/TrajectorySamplePoint.hpp
+        src/lib/trajectory/TrajectoryUtil.cpp
+        src/lib/trajectory/TrajectoryUtil.hpp
+        src/lib/trajectory/TrajectoryView.cpp
+        src/lib/trajectory/TrajectoryView.hpp
+        src/lib/utility/interfaces/CSVLoggable.hpp
+        src/lib/utility/interfaces/Interpolable.hpp
+        src/lib/utility/interfaces/InverseInterpolable.hpp
+        src/lib/utility/CircularBuffer.cpp
+        src/lib/utility/CircularBuffer.hpp
+        src/lib/utility/DelayedBoolean.cpp
+        src/lib/utility/DelayedBoolean.hpp
+        src/lib/utility/DriveSignal.cpp
+        src/lib/utility/DriveSignal.hpp
+        src/lib/utility/InterpolatingDouble.cpp
+        src/lib/utility/InterpolatingDouble.hpp
+        src/lib/utility/InterpolatingLong.cpp
+        src/lib/utility/InterpolatingLong.hpp
+        src/lib/utility/InterpolatingMap.cpp
+        src/lib/utility/InterpolatingMap.hpp
+        src/lib/utility/LatchedBoolean.cpp
+        src/lib/utility/LatchedBoolean.hpp
+        src/lib/utility/MovingAverage.cpp
+        src/lib/utility/MovingAverage.hpp
+        src/lib/utility/PolynomialRegression.cpp
+        src/lib/utility/PolynomialRegression.hpp
+        src/lib/utility/Singleton.cpp
+        src/lib/utility/Singleton.hpp
+        src/lib/utility/Units.hpp
+        src/lib/utility/Utility.hpp
+        src/lib/meecan_lib.hpp
+        src/robot/auto/actions/Action.hpp
+        src/robot/auto/actions/DriveTrajectory.cpp
+        src/robot/auto/actions/DriveTrajectory.hpp
+        src/robot/auto/actions/OpenLoopDriveAction.cpp
+        src/robot/auto/actions/OpenLoopDriveAction.hpp
+        src/robot/auto/actions/OpenLoopIntakeAction.cpp
+        src/robot/auto/actions/OpenLoopIntakeAction.hpp
+        src/robot/auto/actions/OpenLoopLiftAction.cpp
+        src/robot/auto/actions/OpenLoopLiftAction.hpp
+        src/robot/auto/actions/ParallelAction.cpp
+        src/robot/auto/actions/ParallelAction.hpp
+        src/robot/auto/actions/ResetLiftTrayPosition.cpp
+        src/robot/auto/actions/ResetLiftTrayPosition.hpp
+        src/robot/auto/actions/SeriesAction.cpp
+        src/robot/auto/actions/SeriesAction.hpp
+        src/robot/auto/actions/TrayEnableStackAction.cpp
+        src/robot/auto/actions/TrayEnableStackAction.hpp
+        src/robot/auto/actions/TrayPosition.cpp
+        src/robot/auto/actions/TrayPosition.hpp
+        src/robot/auto/actions/WaitAction.cpp
+        src/robot/auto/actions/WaitAction.hpp
+        src/robot/auto/modes/AutoModeBase.cpp
+        src/robot/auto/modes/AutoModeBase.hpp
+        src/robot/auto/modes/BackAutoMode.cpp
+        src/robot/auto/modes/BackAutoMode.hpp
+        src/robot/auto/modes/DoNothingMode.hpp
+        src/robot/auto/modes/FlipOutMode.cpp
+        src/robot/auto/modes/FlipOutMode.hpp
+        src/robot/auto/modes/FrontAutoMode.cpp
+        src/robot/auto/modes/FrontAutoMode.hpp
+        src/robot/auto/modes/TestMode.cpp
+        src/robot/auto/modes/TestMode.hpp
+        src/robot/auto/modes/TestTrajectoryMode.cpp
+        src/robot/auto/modes/TestTrajectoryMode.hpp
+        src/robot/auto/AutoModeRunner.cpp
+        src/robot/auto/AutoModeRunner.hpp
+        src/robot/auto/AutonConstants.hpp
+        src/robot/loops/Loop.hpp
+        src/robot/loops/LoopConstants.hpp
+        src/robot/loops/Looper.cpp
+        src/robot/loops/Looper.hpp
+        src/robot/paths/DriveMotionPlanner.cpp
+        src/robot/paths/DriveMotionPlanner.hpp
+        src/robot/paths/PathConstants.hpp
+        src/robot/paths/PathFollower.cpp
+        src/robot/paths/PathFollower.hpp
+        src/robot/paths/TrajectorySet.cpp
+        src/robot/paths/TrajectorySet.hpp
+        src/robot/subsystems/Drive.cpp
+        src/robot/subsystems/Drive.hpp
+        src/robot/subsystems/Intake.cpp
+        src/robot/subsystems/Intake.hpp
+        src/robot/subsystems/Lift.cpp
+        src/robot/subsystems/Lift.hpp
+        src/robot/subsystems/Odometry.cpp
+        src/robot/subsystems/Odometry.hpp
+        src/robot/subsystems/Subsystem.hpp
+        src/robot/subsystems/Tray.cpp
+        src/robot/subsystems/Tray.hpp
+        src/robot/Constants.cpp
+        src/robot/Constants.hpp
+        src/robot/Robot.cpp
+        src/robot/Robot.hpp
+        src/robot/RobotAux.cpp
+        src/tests/lib/geometry/testGeometry.cpp
+        src/tests/lib/geometry/testGeometry.hpp
+        src/tests/lib/physics/testPhysics.cpp
+        src/tests/lib/physics/testPhysics.hpp
+        src/tests/lib/spline/testSpline.cpp
+        src/tests/lib/spline/testSpline.hpp
+        src/tests/lib/trajectory/timing/testTimedState.cpp
+        src/tests/lib/trajectory/timing/testTimedState.hpp
+        src/tests/lib/trajectory/testTrajectory.cpp
+        src/tests/lib/trajectory/testTrajectory.hpp
+        src/tests/testAll.cpp
+        src/tests/testBase.cpp
+        src/tests/testBase.hpp
+        src/tests/testsInclude.hpp src/robot/auto/actions/LiftPosition.cpp src/robot/auto/actions/LiftPosition.hpp)
